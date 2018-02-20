@@ -1,0 +1,53 @@
+# Me
+set from = "rudra.nil.basu.1996@gmail.com"
+set realname = "Rudra Nil Basu"
+
+# Start: copy from backup rc
+set use_from = yes
+set envelope_from ="yes"
+# End copy from backup rc
+
+# My credentials
+set smtp_url = "smtp://rudra.nil.basu.1996@gmail.com@smtp.gmail.com:587/"
+#set smtp_pass = ""
+set imap_user = "rudra.nil.basu.1996@gmail.com"
+#set imap_pass = ""
+
+# My mailboxes
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+
+# Where to put the stuff
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+# Etc
+set mail_check = 30
+set move = no
+set imap_keepalive = 900
+set sort = threads
+set editor = "vim -c 'set tw=70 et' '+/^$' "   # vim with 70 char wrap
+set edit_headers     # See headers while editting
+
+set sort_aux=last-date-received
+set sort=threads
+set sort_re
+
+
+# GnuPG bootstrap
+# source ~/.mutt/gpg.rc
+
+# Check if we should do this
+#ignore *
+#unignore from date subject to cc
+#ignore organization organisation x-mailer: x-newsreader: x-mailing-list:
+#unignore posted-to:
+#ignore Message-Id
+#ignore Content-Type
+
+
+# Some stuff
+# the message (which itself is an attachment)can be saved in a disk by
+# hit `v` (view attachment) and then `s` (save the attachment)
