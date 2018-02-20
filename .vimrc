@@ -33,3 +33,10 @@ let tabsize=4
 execute "set tabstop=".tabsize
 execute "set shiftwidth=".tabsize
 set expandtab
+
+execute pathogen#infect()
+
+autocmd vimenter * NERDTree
+
+:map <F2> :NERDTreeFocus<CR>
+:map <F3> :NERDTreeClose<CR>
