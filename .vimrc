@@ -36,7 +36,13 @@ set expandtab
 
 execute pathogen#infect()
 
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
+" Currently turned off autostart of nerdtree
 
 :map <F2> :NERDTreeFocus<CR>
 :map <F3> :NERDTreeClose<CR>
+
+" nerdcommenter: https://github.com/scrooloose/nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
