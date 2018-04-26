@@ -41,6 +41,9 @@ execute pathogen#infect()
 
 :map <F2> :NERDTreeFocus<CR>
 :map <F3> :NERDTreeClose<CR>
+" https://stackoverflow.com/a/53668/6794119
+:map <F7> :tabp<CR>
+:map <F8> :tabn<CR>
 
 " nerdcommenter: https://github.com/scrooloose/nerdcommenter
 " Add spaces after comment delimiters by default
