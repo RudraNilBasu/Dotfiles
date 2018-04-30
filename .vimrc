@@ -1,5 +1,11 @@
-set number
+set number " turn on line numbering
 filetype indent on
+set ruler " Show line and column no
+set cursorline " Draw a line in current working line
+
+" Searching
+set incsearch " search as chars are entered
+set hlsearch  " highlight matches
 
 
 " git commit 72 char break
