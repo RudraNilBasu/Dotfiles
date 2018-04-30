@@ -6,7 +6,8 @@ set cursorline " Draw a line in current working line
 " Searching
 set incsearch " search as chars are entered
 set hlsearch  " highlight matches
-
+" turn off search highlight \<space> to turn off highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 " git commit 72 char break
 au FileType gitcommit set tw=72
