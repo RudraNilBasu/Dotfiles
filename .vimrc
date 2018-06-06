@@ -52,6 +52,8 @@ execute pathogen#infect()
 :map <F7> :tabp<CR>
 :map <F8> :tabn<CR>
 
+set cursorcolumn " Show vertical lines (for the ones that use 2 char indentation)
+
 " nerdcommenter: https://github.com/scrooloose/nerdcommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
