@@ -51,3 +51,6 @@ set sort_re
 # Some stuff
 # the message (which itself is an attachment)can be saved in a disk by
 # hit `v` (view attachment) and then `s` (save the attachment)
+
+subscribe git@vger.kernel.org
+lists git@vger.kernel.org
