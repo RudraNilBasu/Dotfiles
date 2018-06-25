@@ -69,3 +69,6 @@ fun! ShowFuncName()
 endfun
 map f :call ShowFuncName() <CR>
 
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
