@@ -47,6 +47,28 @@ set sort_re
 #ignore Message-Id
 #ignore Content-Type
 
+# color scheme
+color hdrdefault white default
+color quoted magenta default
+color signature red default
+
+color indicator  blue yellow
+color error brightred default
+color status black cyan
+color tree green default    # the thread tree in the index menu
+
+color tilde magenta default
+color message brightcyan default
+color markers brightcyan default
+color attachment brightmagenta default
+color search default green  # how to hilite search patterns in the pager
+
+color header brightred default ^(From|To|Date):
+color header brightgreen default ^(Subject):
+color body magenta default "(ftp|http)://[^ ]+" # point out URLs
+color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+    # e-mail addresses
+color underline brightgreen default
+
 
 # Some stuff
 # the message (which itself is an attachment)can be saved in a disk by
