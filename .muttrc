@@ -47,9 +47,12 @@ set sort_re
 #ignore Message-Id
 #ignore Content-Type
 
-# color scheme
 color hdrdefault white default
 color quoted magenta default
+color quoted1 cyan default
+color quoted2 yellow default
+color quoted3 red default
+color quoted4 green default
 color signature red default
 
 color indicator  blue yellow
@@ -69,10 +72,29 @@ color body magenta default "(ftp|http)://[^ ]+" # point out URLs
 color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+    # e-mail addresses
 color underline brightgreen default
 
+# New, Deleted and old colors in index
+color index black red "~D"
+# color index blue default "~N"
+color index cyan default "~O"
+
+# also show list on viewing mails
+
+set pager_index_lines   = 10    # number of index lines to show
+set pager_context       = 3     # number of context lines to show
+
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+
+set sleep_time = 0 # fast loading time
+
+# Sanely handle multi-part messages (prefer text part, but yield to
+# mailcap-configured rendering for html-only)
+alternative_order text/plain text/html
+auto_view text/html
 
 # Some stuff
 # the message (which itself is an attachment)can be saved in a disk by
 # hit `v` (view attachment) and then `s` (save the attachment)
-
 subscribe git@vger.kernel.org
 lists git@vger.kernel.org
+
