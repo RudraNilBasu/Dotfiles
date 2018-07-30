@@ -7,6 +7,9 @@ set use_from = yes
 set envelope_from ="yes"
 # End copy from backup rc
 
+# Auth while sending. Check https://github.com/Homebrew/legacy-homebrew/issues/33419#issuecomment-60069502
+set smtp_authenticators = 'gssapi:login'
+
 # My credentials
 set smtp_url = "smtp://rudra.nil.basu.1996@gmail.com@smtp.gmail.com:587/"
 #set smtp_pass = ""
