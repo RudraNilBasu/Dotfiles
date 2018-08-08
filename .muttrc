@@ -7,7 +7,6 @@ set use_from = yes
 set envelope_from ="yes"
 # End copy from backup rc
 
-# Auth while sending. Check https://github.com/Homebrew/legacy-homebrew/issues/33419#issuecomment-60069502
 set smtp_authenticators = 'gssapi:login'
 
 # My credentials
@@ -100,4 +99,10 @@ auto_view text/html
 # hit `v` (view attachment) and then `s` (save the attachment)
 subscribe git@vger.kernel.org
 lists git@vger.kernel.org
+
+
+# Different color for mailing lists
+set my_pattern = 'color index brightblack black "~s \"PATCH\""'
+folder-hook .      un$my_pattern
+folder-hook .INBOX $my_pattern
 
