@@ -104,7 +104,7 @@ inoremap <c-d> <esc>ddi
 nnoremap <c-u> viwU
 inoremap <c-v> <esc>viw
 inoremap <c-space> <esc>viw
-map <F7> :FZF<CR>
+map <F10> :FZF<CR>
 
 function ShowFiles(filename)
     execute 'new | 0read ! git ls-files | grep ' . a:filename
@@ -126,4 +126,10 @@ endfunction
 map <F9> :call OpenFile()<CR>
 command! -nargs=1 FindFiles call ShowFiles(<f-args>)
 command! Readonly set ro
+map <F6> :%s/word/replace/g
+
+function FindAndReplace(str1, str2)
+    let command = '%s/' . a:str1 . '/' . a:str2 . '/g'
+    execute command
+endfunction
 
