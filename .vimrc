@@ -59,14 +59,14 @@ endfun
 map f :call ShowFuncName() <CR>
 
 " Ctrl-P
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Search by filename: https://superuser.com/a/498215
 " let g:ctrlp_by_filename = 1
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Use `git ls-files for searching for files`
-let g:ctrlp_max_files=20000
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+" let g:ctrlp_max_files=20000
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 " https://stackoverflow.com/a/17327372/6794119
 " if executable('ag')
@@ -131,5 +131,36 @@ map <F6> :%s/word/replace/g
 function FindAndReplace(str1, str2)
     let command = '%s/' . a:str1 . '/' . a:str2 . '/g'
     execute command
+endfunction
+
+function SetTabValue(value)
+    let cm1 = 'set shiftwidth=' . a:value
+    let cm2 = 'set tabstop=' . a:value
+    execute cm1
+    execute cm2
+endfunction
+
+function TotalLines()
+    echom line('$')
+endfunction
+
+function GithubUrl() range
+    let l:line_start = getpos("'<")[1]
+    let l:line_end = getpos("'>")[1]
+    let l:root_url = system('git rev-parse --show-toplevel')
+    let l:rel_path = '/' . expand('%:p')[len(root_url) : -1]
+    let l:branch = system('git name-rev --name-only HEAD')
+    let l:branch = substitute(l:branch, '^tags//\|\n', '', '')
+
+    let l:remote_url = system('git remote get-url origin')
+    let l:remote_url = substitute(l:remote_url, 'git@\|git:', 'https://', 'g')
+    let l:remote_url = substitute(l:remote_url, '\.git.$', '', '')
+    let l:remote_url = substitute(l:remote_url, '^tags//\|\n', '', '')
+    let l:remote_url = substitute(l:remote_url, ':\([^/]\)', '/\1', 'g')
+
+    let l:final_url = remote_url . '/blob/' . branch . rel_path . '#L' . line_start . '-L' . line_end
+
+    " TODO: For Mac only, use `xdg-open` for linux
+    call system('open ' . l:final_url)
 endfunction
 
