@@ -1,13 +1,15 @@
+zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/administrator/.oh-my-zsh
+export ZSH=/Users/hackerrank/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gitster" #"robbyrussell"
+# ZSH_THEME="bureau" #"robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -60,6 +62,8 @@ ZSH_THEME="gitster" #"robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-syntax-highlighting
+  # zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -92,4 +96,22 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=~/.local/bin:$PATH
+
+alias vimfzf='vim $(fzf)'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH=$PATH:/usr/local/go/bin
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=/Users/hackerrank/.rvm/gems/ruby-2.4.2/bin:/Users/hackerrank/.rvm/gems/ruby-2.4.2@global/bin:/Users/hackerrank/.rvm/rubies/ruby-2.4.2/bin:/Users/hackerrank/.nvm/versions/node/v8.9.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/hackerrank/.rvm/bin:/Users/hackerrank/.vimpkg/bin
+
+# if [ "$(uname)" == "Darwin" ]; then
+    # alias ctags="`brew --prefix`/bin/ctags"
+# fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zprof
