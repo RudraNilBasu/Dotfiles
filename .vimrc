@@ -105,6 +105,7 @@ nnoremap <c-u> viwU
 inoremap <c-v> <esc>viw
 inoremap <c-space> <esc>viw
 map <F10> :FZF<CR>
+map <F9> :Ag<CR>
 
 function ShowFiles(filename)
     execute 'new | 0read ! git ls-files | grep ' . a:filename
@@ -113,17 +114,13 @@ function ShowFiles(filename)
     " execute '!git ls-files | grep ' . a:filename
 endfunction
 
-function OpenFile()
-    let lineText = getline('.')
-    execute 'tabe ' . lineText
-    " let xc = getLine(.)
-    " echom xc
-    " execute 'tabe ' . a:cx
-    " execute 'tabe ' . getLine(.)
-endfunction
+" function OpenFile()
+    " let lineText = getline('.')
+    " execute 'tabe ' . lineText
+" endfunction
 
-" TODO: replace this with the current selected word
-map <F9> :call OpenFile()<CR>
+" " TODO: replace this with the current selected word
+" map <F9> :call OpenFile()<CR>
 command! -nargs=1 FindFiles call ShowFiles(<f-args>)
 command! Readonly set ro
 map <F6> :%s/word/replace/g
@@ -150,6 +147,7 @@ function GithubUrl() range
     let l:root_url = system('git rev-parse --show-toplevel')
     let l:rel_path = '/' . expand('%:p')[len(root_url) : -1]
     let l:branch = system('git name-rev --name-only HEAD')
+    " let l:branch = system('git rev-parse --abbrev-ref HEAD')
     let l:branch = substitute(l:branch, '^tags//\|\n', '', '')
 
     let l:remote_url = system('git remote get-url origin')
@@ -164,3 +162,34 @@ function GithubUrl() range
     call system('open ' . l:final_url)
 endfunction
 
+function ToggleLineNumbers()
+  set invnumber
+  set invrelativenumber
+endfunction
+
+function ToggleDND()
+  set invcursorline
+  set invcursorcolumn
+  GitGutterToggle
+  call ToggleLineNumbers()
+endfunction
+
+function StartDND()
+  set nocursorline
+  set nocursorcolumn
+  set updatetime=100
+  let g:gitgutter_enabled = 0
+  set nonumber
+  set norelativenumber
+endfunction
+
+" For GitGutter
+set updatetime=100
+
+" Make :Ag only search on contents and not file
+" https://github.com/junegunn/fzf.vim/issues/346
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+call StartDND()
+" For ACK
+" let g:ackprg = 'ag --nogroup --nocolor --column'
