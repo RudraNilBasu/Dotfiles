@@ -177,10 +177,19 @@ endfunction
 function StartDND()
   set nocursorline
   set nocursorcolumn
-  set updatetime=100
   let g:gitgutter_enabled = 0
   set nonumber
   set norelativenumber
+  set colorcolumn=0
+endfunction
+
+function EndDND()
+  set cursorline
+  set cursorcolumn
+  let g:gitgutter_enabled = 1
+  set number
+  set relativenumber
+  set colorcolumn=110
 endfunction
 
 " For GitGutter
@@ -193,3 +202,5 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 call StartDND()
 " For ACK
 " let g:ackprg = 'ag --nogroup --nocolor --column'
+
+set completeopt-=menu
