@@ -204,3 +204,5 @@ call StartDND()
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 
 set completeopt-=menu
+
+nnoremap <c-b> :buffer *
