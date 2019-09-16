@@ -205,4 +205,7 @@ call StartDND()
 
 set completeopt-=menu
 
+" https://vi.stackexchange.com/a/9161
 nnoremap <c-b> :buffer *
+nnoremap gb :ls<CR>:b
+
