@@ -208,4 +208,5 @@ set completeopt-=menu
 " https://vi.stackexchange.com/a/9161
 nnoremap <c-b> :buffer *
 nnoremap gb :ls<CR>:b
-
+nnoremap gsb :ls<CR>:sb
+nnoremap gvb :ls<CR>:vertical sb
