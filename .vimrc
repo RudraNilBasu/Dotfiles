@@ -210,3 +210,5 @@ nnoremap <c-b> :buffer *
 nnoremap gb :ls<CR>:b
 nnoremap gsb :ls<CR>:sb
 nnoremap gvb :ls<CR>:vertical sb
+
+runtime! ftplugin/man.vim
