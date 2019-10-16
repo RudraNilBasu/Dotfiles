@@ -204,11 +204,13 @@ call StartDND()
 " let g:ackprg = 'ag --nogroup --nocolor --column'
 
 set completeopt-=menu
+if has("gui_running")
+  set gfn=Monaco:h18
+  colorscheme witness
+endif
 
-" https://vi.stackexchange.com/a/9161
+
 nnoremap <c-b> :buffer *
 nnoremap gb :ls<CR>:b
-nnoremap gsb :ls<CR>:sb
-nnoremap gvb :ls<CR>:vertical sb
 
 runtime! ftplugin/man.vim
