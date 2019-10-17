@@ -22,16 +22,21 @@ let s:fg4="#878787"
 let s:bg2="#072626"
 let s:bg3="#3f3f3f"
 let s:bg4="#d3b58d"
-let s:keyword="#90ee90"
+" let s:keyword="#90ee90"
+let s:keyword="#ffffff"
 let s:builtin="#a78360"
 let s:const= "#d3b58b"
 let s:comment="#3fdf1f"
-let s:func="#ffffff"
+" let s:func="#ffffff"
+let s:func="#d3b58d"
 let s:str="#0fdfad"
-let s:type="#90ee90"
+" let s:type="#90ee90"
+let s:type="#d3b58d"
 let s:var="#4394a7"
+let s:bluebg="#0000ff"
 let s:warning="#e81050"
 let s:warning2="#e86310"
+let s:boolean1="#0fdfad"
 
 exe 'hi Normal guifg='s:fg' guibg='s:bg 
 exe 'hi Cursor guifg='s:bg' guibg='s:fg 
@@ -45,11 +50,11 @@ exe 'hi StatusLine guifg='s:fg2' guibg='s:bg3' gui=bold'
 exe 'hi Pmenu guifg='s:fg' guibg='s:bg2
 exe 'hi PmenuSel  guibg='s:bg3 
 exe 'hi IncSearch guifg='s:bg' guibg='s:keyword 
-exe 'hi Search   gui=underline'
+exe 'hi Search guibg='s:bluebg'  gui=underline'
 exe 'hi Directory guifg='s:const  
 exe 'hi Folded guifg='s:fg4' guibg='s:bg 
 
-exe 'hi Boolean guifg='s:const  
+exe 'hi Boolean guifg='s:boolean1  
 exe 'hi Character guifg='s:const  
 exe 'hi Comment guifg='s:comment  
 exe 'hi Conditional guifg='s:keyword  
@@ -89,7 +94,7 @@ exe 'hi rubyInstanceVariable guifg='s:var
 exe 'hi rubyKeyword guifg='s:keyword
 exe 'hi rubyKeywordAsMethod guifg='s:keyword' gui=bold'
 exe 'hi rubyClassDeclaration guifg='s:keyword' gui=bold'
-exe 'hi rubyClass guifg='s:keyword' gui=bold'
+exe 'hi rubyClass guifg='s:fg' gui=bold'
 exe 'hi rubyNumber guifg='s:const
 
 " Python Highlighting
