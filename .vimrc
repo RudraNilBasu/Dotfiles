@@ -107,6 +107,10 @@ inoremap <c-space> <esc>viw
 map <F10> :FZF<CR>
 map <F9> :Ag<CR>
 
+" Splitting
+map <C-\> <esc>:vsplit<CR>
+map <C-_> <esc>:split<CR>
+
 function ShowFiles(filename)
     execute 'new | 0read ! git ls-files | grep ' . a:filename
     set ro
