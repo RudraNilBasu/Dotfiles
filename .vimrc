@@ -8,7 +8,7 @@ set cursorline
 
 " Colorscheme, really depends on mood
 set background=light
-color Greymatters
+color witness
 
 " Searching
 set incsearch " search as chars are entered
@@ -67,6 +67,13 @@ map f :call ShowFuncName() <CR>
 " Use `git ls-files for searching for files`
 " let g:ctrlp_max_files=20000
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
+" I saw that I had problems installing fzf + Ag on my new system
+" Even though it apparently is simple, so I'll just write the steps
+" here:
+" - brew install the_silver_searcher
+" - clone https://github.com/junegunn/fzf to ~/.vim/bundle
+" - clone https://github.com/junegunn/fzf.vim to ~/.vim/bundle
 
 " https://stackoverflow.com/a/17327372/6794119
 " if executable('ag')
@@ -218,3 +225,7 @@ nnoremap <c-b> :buffer *
 nnoremap gb :ls<CR>:b
 
 runtime! ftplugin/man.vim
+
+set backupdir=$HOME/.vim/swapfiles
+set directory=$HOME/.vim/swapfiles
+set undodir=$HOME/.vim/swapfiles
