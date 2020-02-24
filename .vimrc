@@ -181,6 +181,7 @@ endfunction
 function ToggleDND()
   set invcursorline
   set invcursorcolumn
+  set invcursorline
   GitGutterToggle
   call ToggleLineNumbers()
 endfunction
@@ -188,6 +189,7 @@ endfunction
 function StartDND()
   set nocursorline
   set nocursorcolumn
+  set nocursorline
   let g:gitgutter_enabled = 0
   set nonumber
   set norelativenumber
@@ -197,6 +199,7 @@ endfunction
 function EndDND()
   set cursorline
   set cursorcolumn
+  set cursorline
   let g:gitgutter_enabled = 1
   set number
   set relativenumber
@@ -229,3 +232,32 @@ runtime! ftplugin/man.vim
 set backupdir=$HOME/.vim/swapfiles
 set directory=$HOME/.vim/swapfiles
 set undodir=$HOME/.vim/swapfiles
+
+" rails stuff
+map ,p obinding.pry<ESC>
+
+" Overridding CursorLine for now, will be toggled
+:hi CursorLine guibg=#3a2087
+
+
+
+function ListAFunction(name, description)
+    echohl WarningMsg
+    echo a:name . ": "
+    echohl None
+    echon a:description
+endfunction
+
+function FunctionLists()
+    call ListAFunction("ShowFiles(string)", "shows all files matching with that string")
+    call ListAFunction("FindAndReplace(string s1, string s2)", "does a global find of s1 and replaces with s2")
+    call ListAFunction("TotalLines()", "prints total lines in the file")
+    call ListAFunction("GithubUrl()", "opens the current file on Github with selected line range")
+    call ListAFunction("ToggleDND()", "toggles line numbers and cursorline")
+    call ListAFunction("StartDND()", "Turns off line numbers, cursorline / column")
+    call ListAFunction("EndDND()", "Turns on line numbers, cursorline / column")
+    call ListAFunction("SetTabValue(int x)", "Sets tab = x spaces")
+    call ListAFunction("ToggleLineNumbers()", "Toggles relative line numbers")
+    call ListAFunction("TurnOnMenuBars()", "Shows Top Menu bars")
+    call ListAFunction("TurnOffMenuBars()", "Hides Top Menu bars")
+endfunction
