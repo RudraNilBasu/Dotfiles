@@ -261,3 +261,21 @@ function FunctionLists()
     call ListAFunction("TurnOnMenuBars()", "Shows Top Menu bars")
     call ListAFunction("TurnOffMenuBars()", "Hides Top Menu bars")
 endfunction
+
+map <F4> :call FunctionLists() <CR>
+
+
+" :match Todo /TODO/
+:match Todo /TODO\|NOTE\|STUDY/
+:2match Error /IMPORTANT/
+
+
+
+
+highlight Cursor guifg=white guibg=red
+highlight iCursor guifg=black guibg=green
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+" set guicursor+=i:blinkwait10
+set guicursor+=i:blinkon0
