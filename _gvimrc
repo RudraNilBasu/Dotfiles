@@ -149,9 +149,10 @@ set makeprg=W:\handmade\code\build
 
 command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe --c-types=+l -R .
 " nnoremap <A-m> :make \| vert copen 80<CR>
-nnoremap <A-m> :only \| :make \| vert copen 80<CR>
+nnoremap <A-m> :only \| :make \| vert copen 80<CR><CR>
 nnoremap <F12> :make \| vert copen 80<CR>
 " TODO: Shortcut for :cnext
+nnoremap <A-k> :bd<CR>
 " map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -222,3 +223,25 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 " set guicursor+=i:blinkwait10
 set guicursor+=i:blinkon0
+
+
+
+" ALT-C        Toggles between H file and CPP file in next window.
+function! ToggleHeaderAndCPPFile()
+  let current_file_extension = expand('%:e')
+  let filename_without_extension = expand('%:r')
+
+  let target_extension = ''
+  :if current_file_extension == 'h'
+  : let target_extension = 'cpp'
+  :else
+  : let target_extension = 'h'
+  : endif
+
+  let target_filename = filename_without_extension . '.' . target_extension
+
+  execute ':only' 
+  execute 'vsplit ' . target_filename
+endfunction
+
+nnoremap <A-c> :call ToggleHeaderAndCPPFile()<CR>
