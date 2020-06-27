@@ -147,7 +147,10 @@ endfunction
 
 set makeprg=W:\handmade\code\build
 
-command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe --c-types=+l -R .
+" NOTE: --c-types=+l is messing up few handmade_tile.cpp functions, so
+" skipping it
+command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe -R .
+" command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe --c-types=+l -R .
 " nnoremap <A-m> :make \| vert copen 80<CR>
 nnoremap <A-m> :only \| :make \| vert copen 80<CR><CR>
 nnoremap <F12> :make \| vert copen 80<CR>
@@ -245,3 +248,20 @@ function! ToggleHeaderAndCPPFile()
 endfunction
 
 nnoremap <A-c> :call ToggleHeaderAndCPPFile()<CR>
+" Alt-s to save in both insert and normal modes
+nnoremap <A-s> :update<CR>
+inoremap <A-s> <Esc>:update<CR>
+nnoremap <A-i> i
+imap <A-i> <Esc>
+" Map :W to be same as :W
+" cabb W w
+" cabb Q q
+" or
+
+" cmap W w
+" cmap Q q
+
+nnoremap <C-Up> 5k
+nnoremap <C-Down> 5j
+nnoremap <C-Left> 10h
+nnoremap <C-Right> 10l
