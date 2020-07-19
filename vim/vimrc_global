@@ -154,6 +154,8 @@ command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe -R .
 " command! MakeTags !C:\Users\rudra\Downloads\ctags58\ctags58\ctags.exe --c-types=+l -R .
 " nnoremap <A-m> :make \| vert copen 80<CR>
 nnoremap <A-m> :only \| :make \| vert copen 80<CR><CR>
+nnoremap <A-n> :cnext<CR>
+nnoremap <A-N> :cprevious<CR>
 nnoremap <F12> :make \| vert copen 80<CR>
 " TODO: Shortcut for :cnext
 nnoremap <A-k> :bd<CR>
@@ -251,7 +253,26 @@ function! ToggleHeaderAndCPPFile()
   execute 'vsplit ' . target_filename
 endfunction
 
+" ALT-Shift-C        Toggles between H file and CPP file in same window.
+function! ToggleHeaderAndCPPFileInSameWindow()
+  let current_file_extension = expand('%:e')
+  let filename_without_extension = expand('%:r')
+
+  let target_extension = ''
+  :if current_file_extension == 'h'
+  : let target_extension = 'cpp'
+  :else
+  : let target_extension = 'h'
+  : endif
+
+  let target_filename = filename_without_extension . '.' . target_extension
+
+  execute ':only' 
+  execute ':e  ' . target_filename
+endfunction
+
 nnoremap <A-c> :call ToggleHeaderAndCPPFile()<CR>
+nnoremap <A-C> :call ToggleHeaderAndCPPFileInSameWindow()<CR>
 " Alt-s to save in both insert and normal modes
 nnoremap <A-s> :update<CR>
 inoremap <A-s> <Esc>:update<CR>
