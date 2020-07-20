@@ -286,6 +286,7 @@ imap <A-i> <Esc>
 " cmap W w
 " cmap Q q
 
+nnoremap <C-Tab> =a{<CR>
 nnoremap <C-Up> 5k
 nnoremap <C-Down> 5j
 nnoremap <C-Left> 10h
