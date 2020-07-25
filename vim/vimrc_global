@@ -2,7 +2,9 @@
 " colorscheme witness
 " colorscheme handmade
 colorscheme nothings
-set guifont=Consolas:h12 " 11 previously then settled on 10
+" set guifont=Consolas:h12 " 11 previously then settled on 10
+" set guifont=Inconsolata:h12
+set guifont=Consolas:h14
 
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -10,6 +12,8 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+set nowrap
 
 " Searching
 set incsearch " search as chars are entered
