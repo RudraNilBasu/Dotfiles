@@ -192,6 +192,10 @@ endfunction
 " augroup END
 
 
+augroup quickfix
+    autocmd!
+    autocmd FileType qf setlocal wrap
+augroup end
 
 
 
