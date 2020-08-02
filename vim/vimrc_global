@@ -271,7 +271,6 @@ function! ToggleHeaderAndCPPFileInSameWindow()
 
   let target_filename = filename_without_extension . '.' . target_extension
 
-  execute ':only' 
   execute ':e  ' . target_filename
 endfunction
 
