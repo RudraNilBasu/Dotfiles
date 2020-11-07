@@ -1,7 +1,9 @@
 " colorscheme desert
-" colorscheme witness
+colorscheme witness
 " colorscheme handmade
-colorscheme nothings
+" colorscheme nothings
+
+
 " set guifont=Consolas:h12 " 11 previously then settled on 10
 " set guifont=Inconsolata:h12
 set guifont=Consolas:h14
@@ -163,6 +165,7 @@ nnoremap <A-N> :cprevious<CR>
 nnoremap <F12> :make \| vert copen 80<CR>
 " TODO: Shortcut for :cnext
 nnoremap <A-k> :bd<CR>
+nnoremap <A-n> /^
 " map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
@@ -298,3 +301,12 @@ nnoremap <C-Up> 5k
 nnoremap <C-Down> 5j
 nnoremap <C-Left> 10h
 nnoremap <C-Right> 10l
+
+set path=w:\prg;%path%
+
+" DOS Edit-style copy & paste to system buffer.
+vmap <C-Insert> "*y<CR>
+vmap <C-Delete> "*d<CR>
+nmap <S-Insert> "*P<CR>
+vmap <S-Insert> "*P<CR>
+
