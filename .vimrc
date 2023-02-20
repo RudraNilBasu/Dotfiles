@@ -1,6 +1,11 @@
 filetype plugin indent on
 syntax on
 
+set pythondll=/usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7/Python
+set pythonhome=/usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7
+set pythonthreedll=/usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7/Python
+set pythonthreehome=/usr/local/opt/python@3.7/Frameworks/Python.framework/Versions/3.7
+
 set ruler " Show line and column no
 set number " turn on line numbering
 set relativenumber
@@ -111,6 +116,7 @@ inoremap <c-d> <esc>ddi
 nnoremap <c-u> viwU
 inoremap <c-v> <esc>viw
 inoremap <c-space> <esc>viw
+inoremap <c-s> <esc>:update<CR>
 map <F10> :FZF<CR>
 map <F9> :Ag<CR>
 
@@ -215,7 +221,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 
 call StartDND()
 " For ACK
-" let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 set completeopt-=menu
 if has("gui_running")
@@ -279,3 +285,7 @@ set guicursor+=i:ver100-iCursor
 set guicursor+=n-v-c:blinkon0
 " set guicursor+=i:blinkwait10
 set guicursor+=i:blinkon0
+
+
+" If fzf is installed on mac using homebrew
+set rtp+=/usr/local/opt/fzf
