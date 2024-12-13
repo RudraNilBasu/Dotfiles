@@ -288,4 +288,21 @@ set guicursor+=i:blinkon0
 
 
 " If fzf is installed on mac using homebrew
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
+
+
+" These are project specific changes
+" Apply settings when Vim is started in ~/workspace
+autocmd VimEnter * if expand('%:p:h') =~# expand('~/workspace') |
+      \ set shiftwidth=2 |
+      \ set cursorline |
+      \ vsplit |
+      \ set number |
+      \ set relativenumber |
+      \ endif
+
+" Apply settings when Vim is started in ~/workspace
+autocmd VimEnter * if expand('%:p:h') =~# expand('~/workspace/cs/quantum-study-customisations') |
+      \ colorscheme handmade |
+      \ endif
